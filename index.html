@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional English 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+
+        .lessons-page {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            margin: 20px 0;
+        }
+
+        .lessons-page h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .lessons-page {
+                padding: 30px 15px;
+                margin: 10px 0;
+            }
+            
+            .lessons-page h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .course-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .course-button {
+                width: 100%;
+                max-width: 300px;
+                padding: 15px 30px;
+            }
+        }
+
+        .topic-list {
+            display: none;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .topic-list h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .topic-list {
+                padding: 20px 15px;
+                margin-top: 15px;
+            }
+            
+            .topic-list h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .topic-button {
+            display: block;
+            width: 100%;
+            padding: 18px 25px;
+            margin: 15px 0;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .topic-button {
+                padding: 15px 20px;
+                margin: 10px 0;
+                font-size: 1rem;
+            }
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 20px 15px;
+                margin-top: 15px;
+                border-radius: 15px;
+            }
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .content-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .translation-pair {
+            display: flex;
+            padding: 15px 20px;
+            margin: 8px 0;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .translation-pair:hover {
+            transform: translateX(2px);
+            box-shadow: 0 3px 15px rgba(52, 152, 219, 0.15);
+            border-left-color: #e74c3c;
+        }
+
+        @media (max-width: 768px) {
+            .translation-pair {
+                flex-direction: column;
+                padding: 12px 15px;
+                text-align: left;
+            }
+        }
+
+        .english {
+            flex: 1;
+            padding-right: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .turkish {
+            flex: 1;
+            color: #7f8c8d;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .english {
+                padding-right: 0;
+                margin-bottom: 5px;
+                font-size: 1rem;
+            }
+            
+            .turkish {
+                font-size: 0.95rem;
+            }
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 0 0 25px 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(149, 165, 166, 0.3);
+        }
+
+        .back-button::before {
+            content: '←';
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .section-heading {
+            color: #e74c3c;
+            margin: 40px 0 20px 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+            border-radius: 12px;
+            border-left: 5px solid #e74c3c;
+            box-shadow: 0 3px 15px rgba(231, 76, 60, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 1.2rem;
+                margin: 25px 0 15px 0;
+                padding: 12px 15px;
+            }
+        }
+
+        /* Back to Topics Button */
+        .back-to-topics {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 20px auto;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .back-to-topics:hover {
+            transform: translateX(-50%) translateY(-1px);
+            box-shadow: 0 6px 20px rgba(155, 89, 182, 0.3);
+        }
+
+        .back-to-topics::before {
+            content: '←';
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .back-to-topics {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                margin: 15px auto;
+            }
+        }
+
+        /* Smooth animations */
+        .content-section, .topic-list, .lessons-page {
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="lessonsPage" class="lessons-page">
+            <h1>Dersler</h1>
+            <a href="#" class="course-button" onclick="showTopics()">Professional English 2</a>
+        </div>
+
+        <div id="topicList" class="topic-list">
+            <a href="#" class="back-to-topics" onclick="showLessons()">Dersler</a>
+            <h2>Konular</h2>
+            <button class="topic-button" onclick="showContent('medication')">Medication</button>
+            <button class="topic-button" onclick="showContent('body')">The Body and Movement</button>
+            <button class="topic-button" onclick="showContent('wound')">Wound Care</button>
+            <button class="topic-button" onclick="showContent('health')">Health Literacy</button>
+            <button class="topic-button" onclick="showContent('meeting')">Meeting with Health Team</button>
+            <button class="topic-button" onclick="showContent('nursing')">Nursing Assessment</button>
+            <button class="topic-button" onclick="showContent('nutrition')">Nutrition</button>
+            <button class="topic-button" onclick="showContent('safety')">Patient Safety</button>
+        </div>
+
+        <!-- Content sections for each topic -->
+        <!-- Medication Content -->
+        <div id="medication" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>Medication (İlaç)</h2>
+
+            <h3 class="section-heading">Five Rights of Medication Administration</h3>
+            <div class="translation-pair">
+                <div class="english">Right patient</div>
+                <div class="turkish">Doğru hasta</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Right drug</div>
+                <div class="turkish">Doğru ilaç</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Right dose</div>
+                <div class="turkish">Doğru doz</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Right route</div>
+                <div class="turkish">Doğru uygulama yolu</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Right time</div>
+                <div class="turkish">Doğru zaman</div>
+            </div>
+
+            <h3 class="section-heading">Strategies for Correct Administration</h3>
+            <div class="translation-pair">
+                <div class="english">Check the drug count</div>
+                <div class="turkish">İlaç sayısını kontrol et</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Check the prescription</div>
+                <div class="turkish">Reçeteyi kontrol et</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Check the ampoule together</div>
+                <div class="turkish">Ampulü birlikte kontrol et</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Check the expiry date</div>
+                <div class="turkish">Son kullanma tarihini kontrol et</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Draw up correct amount in syringe</div>
+                <div class="turkish">Şırıngaya doğru miktarda ilaç çek</div>
+            </div>
+
+            <h3 class="section-heading">Medication Forms</h3>
+            <div class="translation-pair">
+                <div class="english">Capsules</div>
+                <div class="turkish">Kapsüller</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Drops</div>
+                <div class="turkish">Damla</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Inhaler</div>
+                <div class="turkish">İnhaler</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Injection</div>
+                <div class="turkish">Enjeksiyon</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">IV drip</div>
+                <div class="turkish">Damar içi sıvı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Ointment</div>
+                <div class="turkish">Merhem</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Spray</div>
+                <div class="turkish">Sprey</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Suppository</div>
+                <div class="turkish">Fitil</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Syrup</div>
+                <div class="turkish">Şurup</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Tablets</div>
+                <div class="turkish">Tabletler</div>
+            </div>
+
+            <h3 class="section-heading">Medication Routes</h3>
+            <div class="translation-pair">
+                <div class="english">Into the ear</div>
+                <div class="turkish">Kulağa</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Into the eye</div>
+                <div class="turkish">Göze</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">By mouth</div>
+                <div class="turkish">Ağızdan</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Into the muscle</div>
+                <div class="turkish">Kas içine</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Into the nose</div>
+                <div class="turkish">Buruna</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Into the rectum</div>
+                <div class="turkish">Rektuma</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">On the skin</div>
+                <div class="turkish">Cilde</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Under the skin</div>
+                <div class="turkish">Deri altına</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Under the tongue</div>
+                <div class="turkish">Dil altına</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Into a vein</div>
+                <div class="turkish">Damar içine</div>
+            </div>
+
+            <h3 class="section-heading">Dosage Examples</h3>
+            <div class="translation-pair">
+                <div class="english">100 mg + 150 mg = 250 mg</div>
+                <div class="turkish">100 mg artı 150 mg eşittir 250 mg</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">80 ml - 45 ml = 35 ml</div>
+                <div class="turkish">80 ml eksi 45 ml eşittir 35 ml</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">60 mg ÷ 5 mg = 12 mg</div>
+                <div class="turkish">60 mg bölü 5 mg eşittir 12 mg</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">3 x 5 ml = 15 ml</div>
+                <div class="turkish">3 çarpı 5 ml eşittir 15 ml</div>
+            </div>
+
+            <h3 class="section-heading">Nebulizer Use</h3>
+            <div class="translation-pair">
+                <div class="english">First, fill the chamber of the nebuliser.</div>
+                <div class="turkish">İlk olarak, nebulizatör haznesini doldurun.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Next, attach the tubing to the oxygen outlet.</div>
+                <div class="turkish">Sonra, tüpü oksijen çıkışına takın.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Then, put on the mask and tighten it.</div>
+                <div class="turkish">Ardından maskeyi takın ve sıkıca yerleştirin.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">After that, turn on the oxygen.</div>
+                <div class="turkish">Daha sonra oksijeni açın.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Finally, inhale the mist.</div>
+                <div class="turkish">Son olarak buharı soluyun.</div>
+            </div>
+
+            <h3 class="section-heading">Common Patient Medications</h3>
+            <div class="translation-pair">
+                <div class="english">Tablets for nausea</div>
+                <div class="turkish">Bulantı için tablet</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Drops into the ear</div>
+                <div class="turkish">Kulağa damla</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Capsules for angina</div>
+                <div class="turkish">Anjina için kapsüller</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Injection for antihistamine</div>
+                <div class="turkish">Antihistamin için enjeksiyon</div>
+            </div>
+        </div>
+
+        <!-- Body and Movement Content -->
+        <div id="body" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>The Body and Movement (Vücut ve Hareket)</h2>
+
+            <h3 class="section-heading">Body Parts</h3>
+            <div class="translation-pair">
+                <div class="english">Torso</div>
+                <div class="turkish">Gövde</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Cheek</div>
+                <div class="turkish">Yanak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Shin</div>
+                <div class="turkish">Baldır kemiği (ön bacak)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Calf</div>
+                <div class="turkish">Baldır (arka bacak)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Thorax</div>
+                <div class="turkish">Göğüs kafesi</div>
+            </div>
+
+            <h3 class="section-heading">Sample Sentences</h3>
+            <div class="translation-pair">
+                <div class="english">He has a nasty bruise on her shin.</div>
+                <div class="turkish">Onun kaval kemiğinde kötü bir morluk var.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">She's been unable to play since January because of a torn calf muscle.</div>
+                <div class="turkish">Yırtık baldır kası nedeniyle Ocak ayından beri oynayamıyor.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">She went to the doctor complaining of chest pains.</div>
+                <div class="turkish">Göğüs ağrılarından şikayet ederek doktora gitti.</div>
+            </div>
+
+            <h3 class="section-heading">Joints</h3>
+            <div class="translation-pair">
+                <div class="english">Joint</div>
+                <div class="turkish">Eklem</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Ankle</div>
+                <div class="turkish">Ayak bileği</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Wrist</div>
+                <div class="turkish">Bilek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Hip</div>
+                <div class="turkish">Kalça</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Elbow</div>
+                <div class="turkish">Dirsek</div>
+            </div>
+
+            <h3 class="section-heading">Movement Verbs</h3>
+            <div class="translation-pair">
+                <div class="english">Rotate</div>
+                <div class="turkish">Döndürmek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Lift and lower</div>
+                <div class="turkish">Kaldırmak ve indirmek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Straighten</div>
+                <div class="turkish">Düzleştirmek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Bend</div>
+                <div class="turkish">Eğmek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Tighten</div>
+                <div class="turkish">Sıkmak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Relax</div>
+                <div class="turkish">Gevşemek</div>
+            </div>
+
+            <h3 class="section-heading">Imperatives</h3>
+            <div class="translation-pair">
+                <div class="english">Lift your leg.</div>
+                <div class="turkish">Bacağını kaldır.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Push the chair.</div>
+                <div class="turkish">Sandalyeyi it.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Bend your arm.</div>
+                <div class="turkish">Kolunu bük.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Rotate your hand.</div>
+                <div class="turkish">Elini döndür.</div>
+            </div>
+
+            <h3 class="section-heading">Opposites</h3>
+            <div class="translation-pair">
+                <div class="english">Tighten → Relax</div>
+                <div class="turkish">Sık → Gevşe</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Bend → Straighten</div>
+                <div class="turkish">Eğ → Düzleştir</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Push → Pull</div>
+                <div class="turkish">İt → Çek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Sit down → Stand up</div>
+                <div class="turkish">Otur → Ayağa kalk</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Lift → Lower</div>
+                <div class="turkish">Kaldır → İndir</div>
+            </div>
+
+            <h3 class="section-heading">ROM (Range of Motion) Exercises</h3>
+            <div class="translation-pair">
+                <div class="english">Flexion</div>
+                <div class="turkish">Bükme</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Extension</div>
+                <div class="turkish">Uzatma</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Abduction</div>
+                <div class="turkish">Dışa açma</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Adduction</div>
+                <div class="turkish">İçe çekme</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Rotation</div>
+                <div class="turkish">Döndürme</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Circumduction</div>
+                <div class="turkish">Dairesel hareket</div>
+            </div>
+
+            <h3 class="section-heading">Comparative Adjectives</h3>
+            <div class="translation-pair">
+                <div class="english">strong → stronger</div>
+                <div class="turkish">güçlü → daha güçlü</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">good → better</div>
+                <div class="turkish">iyi → daha iyi</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">high → higher</div>
+                <div class="turkish">yüksek → daha yüksek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">bad → worse</div>
+                <div class="turkish">kötü → daha kötü</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">easy → easier</div>
+                <div class="turkish">kolay → daha kolay</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">difficult → more difficult</div>
+                <div class="turkish">zor → daha zor</div>
+            </div>
+        </div>
+
+        <!-- Other content sections would follow the same pattern -->
+
+        <script>
+            function showLessons() {
+                document.getElementById('topicList').style.display = 'none';
+                document.getElementById('lessonsPage').style.display = 'block';
+                // Hide all content sections
+                const contentSections = document.getElementsByClassName('content-section');
+                for(let section of contentSections) {
+                    section.style.display = 'none';
+                }
+            }
+
+            function showTopics() {
+                document.getElementById('lessonsPage').style.display = 'none';
+                document.getElementById('topicList').style.display = 'block';
+                // Hide all content sections
+                const contentSections = document.getElementsByClassName('content-section');
+                for(let section of contentSections) {
+                    section.style.display = 'none';
+                }
+            }
+
+            function showContent(topicId) {
+                document.getElementById('topicList').style.display = 'none';
+                document.getElementById('lessonsPage').style.display = 'none';
+                // Hide all content sections first
+                const contentSections = document.getElementsByClassName('content-section');
+                for(let section of contentSections) {
+                    section.style.display = 'none';
+                }
+                // Show the selected content section
+                document.getElementById(topicId).style.display = 'block';
+            }
+        </script>
+        <!-- Wound Care Content -->
+        <div id="wound" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>Wound Care (Yara Bakımı)</h2>
+
+            <h3 class="section-heading">Wound Terms</h3>
+            <div class="translation-pair">
+                <div class="english">Tissue</div>
+                <div class="turkish">Doku</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Swab</div>
+                <div class="turkish">Sürüntü örneği</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Moist</div>
+                <div class="turkish">Nemli</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Dry</div>
+                <div class="turkish">Kuru</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Slough</div>
+                <div class="turkish">Sarımsı, ölü hücre birikimi</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Eschar</div>
+                <div class="turkish">Siyah veya kahverengi sert, kuru ölü doku</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Debridement</div>
+                <div class="turkish">Ölü dokunun çıkarılması işlemi</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Cellulitis</div>
+                <div class="turkish">Cilt enfeksiyonu</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Desiccation</div>
+                <div class="turkish">Kurutma, nem çekme işlemi</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Dressing</div>
+                <div class="turkish">Pansuman</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">VAC dressing</div>
+                <div class="turkish">Vakum yardımlı pansuman</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Ulcer</div>
+                <div class="turkish">Ülser, yara</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Drainage</div>
+                <div class="turkish">Akıntı</div>
+            </div>
+
+            <h3 class="section-heading">Medical Terms Matching</h3>
+            <div class="translation-pair">
+                <div class="english">Necrosis</div>
+                <div class="turkish">Hücre ölümü</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Inflammation</div>
+                <div class="turkish">Enfeksiyona bağlı şişlik</div>
+            </div>
+
+            <h3 class="section-heading">Additional Wound Terms</h3>
+            <div class="translation-pair">
+                <div class="english">Well-vascularised</div>
+                <div class="turkish">İyi kanlanmış</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Viable</div>
+                <div class="turkish">Yaşayan, canlı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Necrotic tissue</div>
+                <div class="turkish">Ölü doku</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">High bacterial load</div>
+                <div class="turkish">Yüksek bakteriyel yük</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Exudate</div>
+                <div class="turkish">Akıntı, sızıntı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Maceration</div>
+                <div class="turkish">Aşırı nemle yumuşama</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Chronic</div>
+                <div class="turkish">Kronik, uzun süreli</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Skin graft</div>
+                <div class="turkish">Deri grefti (nakli)</div>
+            </div>
+
+            <h3 class="section-heading">Wound Assessment Procedure</h3>
+            <div class="translation-pair">
+                <div class="english">Introduce yourself</div>
+                <div class="turkish">Kendini tanıt</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Close windows, sanitize hands</div>
+                <div class="turkish">Pencereyi kapat, el dezenfekte et</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Check patient ID and date of birth</div>
+                <div class="turkish">Kimlik ve doğum tarihi kontrolü</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Ask about allergies and comfort level</div>
+                <div class="turkish">Alerji ve konfor durumu sor</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Loosen dressing, assess surrounding skin</div>
+                <div class="turkish">Bandajı gevşet, cildi değerlendir</div>
+            </div>
+        </div>
+
+        <!-- Health Literacy Content -->
+        <div id="health" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>Health Literacy (Sağlık Okuryazarlığı)</h2>
+
+            <h3 class="section-heading">Basic Terms</h3>
+            <div class="translation-pair">
+                <div class="english">Literacy</div>
+                <div class="turkish">Okuryazarlık</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Illiterate</div>
+                <div class="turkish">Okuma yazma bilmeyen</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Low literacy</div>
+                <div class="turkish">Düşük okuryazarlık seviyesi</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Functional illiteracy</div>
+                <div class="turkish">İşlevsel okuryazarlık eksikliği</div>
+            </div>
+
+            <h3 class="section-heading">Examples</h3>
+            <div class="translation-pair">
+                <div class="english">Reading medication labels</div>
+                <div class="turkish">İlaç etiketlerini okuma</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Filling out health forms</div>
+                <div class="turkish">Sağlık formlarını doldurma</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Giving informed consent</div>
+                <div class="turkish">Bilgilendirilmiş onam verme</div>
+            </div>
+
+            <h3 class="section-heading">Those at Risk</h3>
+            <div class="translation-pair">
+                <div class="english">Economically disadvantaged</div>
+                <div class="turkish">Ekonomik olarak dezavantajlı olanlar</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Older adults</div>
+                <div class="turkish">Yaşlı bireyler</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Immigrants (especially illegal)</div>
+                <div class="turkish">Göçmenler (özellikle yasa dışı olanlar)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Racial minorities</div>
+                <div class="turkish">Etnik azınlıklar</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">High school dropouts</div>
+                <div class="turkish">Liseden ayrılmış bireyler</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Poor health status</div>
+                <div class="turkish">Kötü sağlık durumuna sahip olanlar</div>
+            </div>
+
+            <h3 class="section-heading">Low Health Literacy Signs</h3>
+            <div class="translation-pair">
+                <div class="english">Says they are too tired/sick to read</div>
+                <div class="turkish">Okumak için çok yorgun/hasta olduğunu söylemek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Asks you to read for them</div>
+                <div class="turkish">Bilgiyi sizin okumanızı istemek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Understands better when listening than reading</div>
+                <div class="turkish">Okumaktan çok dinleyerek anladığını göstermek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Can't follow simple equipment instructions</div>
+                <div class="turkish">Basit cihaz talimatlarını uygulayamamak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Fails to ask questions</div>
+                <div class="turkish">Soru sormamak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Misses appointments</div>
+                <div class="turkish">Randevuları kaçırmak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Medication noncompliance</div>
+                <div class="turkish">İlaçlarını doğru kullanmamak</div>
+            </div>
+        </div>
+
+        <!-- Meeting with Health Team Content -->
+        <div id="meeting" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>Meeting with Health Team (Sağlık Ekibiyle Görüşme)</h2>
+
+            <h3 class="section-heading">Present Simple Tense</h3>
+            <div class="translation-pair">
+                <div class="english">I work in London.</div>
+                <div class="turkish">Londra'da çalışıyorum.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">She works in London.</div>
+                <div class="turkish">Londra'da çalışıyor.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">He goes to the park.</div>
+                <div class="turkish">Parka gider.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">She washes the car.</div>
+                <div class="turkish">Arabayı yıkar.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">She relaxes.</div>
+                <div class="turkish">Dinlenir.</div>
+            </div>
+
+            <h3 class="section-heading">Present Simple Questions</h3>
+            <div class="translation-pair">
+                <div class="english">Do you play the piano?</div>
+                <div class="turkish">Piyano çalar mısın?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Does Jack play football?</div>
+                <div class="turkish">Jack futbol oynar mı?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Where do they live?</div>
+                <div class="turkish">Onlar nerede yaşıyor?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">What does Angela do?</div>
+                <div class="turkish">Angela ne iş yapıyor?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">When does Rita get up?</div>
+                <div class="turkish">Rita ne zaman kalkar?</div>
+            </div>
+
+            <h3 class="section-heading">Present Simple Negatives</h3>
+            <div class="translation-pair">
+                <div class="english">I don't like football.</div>
+                <div class="turkish">Futbolu sevmem.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">They don't work at the weekend.</div>
+                <div class="turkish">Hafta sonu çalışmazlar.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Angela doesn't drive.</div>
+                <div class="turkish">Angela araba kullanmaz.</div>
+            </div>
+
+            <h3 class="section-heading">Meeting Colleagues</h3>
+            <div class="translation-pair">
+                <div class="english">Charge nurse</div>
+                <div class="turkish">Sorumlu hemşire</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Ward sister</div>
+                <div class="turkish">Kat hemşiresi</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Staff nurse</div>
+                <div class="turkish">Kadrolu hemşire</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Healthcare assistant</div>
+                <div class="turkish">Sağlık destek personeli</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Student nurse</div>
+                <div class="turkish">Stajyer hemşire</div>
+            </div>
+
+            <h3 class="section-heading">Healthcare Assistant Duties</h3>
+            <div class="translation-pair">
+                <div class="english">Wash and dress patients</div>
+                <div class="turkish">Hastaları yıkayıp giydirmek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Serve meals</div>
+                <div class="turkish">Yemek servisi yapmak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Monitor vital signs</div>
+                <div class="turkish">Hayati belirtileri izlemek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Take blood samples</div>
+                <div class="turkish">Kan örneği almak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Restock rooms</div>
+                <div class="turkish">Odaları yeniden donatmak</div>
+            </div>
+
+            <h3 class="section-heading">Present Simple of "Be"</h3>
+            <div class="translation-pair">
+                <div class="english">I am / I'm not</div>
+                <div class="turkish">Ben ... / değilim</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">You are / You aren't</div>
+                <div class="turkish">Sen ... / değilsin</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">He is / He isn't</div>
+                <div class="turkish">O ... / değil</div>
+            </div>
+
+            <h3 class="section-heading">Reading a Nursing Schedule</h3>
+            <div class="translation-pair">
+                <div class="english">10.00 = Ten o'clock</div>
+                <div class="turkish">Saat on</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">3 p.m. = Three in the afternoon</div>
+                <div class="turkish">Öğleden sonra üç</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">12 a.m. = Midnight</div>
+                <div class="turkish">Gece yarısı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">12 p.m. = Midday</div>
+                <div class="turkish">Öğlen</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">6 a.m. till 2 p.m.</div>
+                <div class="turkish">Sabah altıdan öğleden sonra ikiye kadar</div>
+            </div>
+
+            <h3 class="section-heading">Meeting Patients</h3>
+            <div class="translation-pair">
+                <div class="english">Hello. It's Mrs Coxen, isn't it?</div>
+                <div class="turkish">Merhaba. Siz Bayan Coxen'siniz, değil mi?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">I'm looking after you.</div>
+                <div class="turkish">Sizinle ilgileniyorum.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">What do you need?</div>
+                <div class="turkish">Ne istiyorsunuz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Am I allowed to eat this?</div>
+                <div class="turkish">Bunu yememe izin var mı?</div>
+            </div>
+        </div>
+
+        <!-- Nursing Assessment Content -->
+        <div id="nursing" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>Nursing Assessment (Hemşirelik Değerlendirmesi)</h2>
+
+            <h3 class="section-heading">Communicating with Patients</h3>
+            <div class="translation-pair">
+                <div class="english">What problems have you been having?</div>
+                <div class="turkish">Hangi sorunları yaşıyorsunuz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">What's been troubling you?</div>
+                <div class="turkish">Sizi rahatsız eden nedir?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">How can I help you?</div>
+                <div class="turkish">Size nasıl yardımcı olabilirim?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Tell me more about the pain.</div>
+                <div class="turkish">Ağrı hakkında daha fazla bilgi verin.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Did I get that right?</div>
+                <div class="turkish">Doğru anladım mı?</div>
+            </div>
+
+            <h3 class="section-heading">Taking the History of Present Illness</h3>
+            <div class="translation-pair">
+                <div class="english">When did it start?</div>
+                <div class="turkish">Ne zaman başladı?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Where does it hurt?</div>
+                <div class="turkish">Neresi ağrıyor?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Could you describe the pain?</div>
+                <div class="turkish">Ağrıyı tarif edebilir misiniz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">On a scale of 1 to 10, how would you rate the pain?</div>
+                <div class="turkish">1'den 10'a kadar ağrınızı nasıl değerlendirirsiniz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Does anything make it worse or better?</div>
+                <div class="turkish">Ağrıyı artıran veya azaltan bir şey var mı?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Have you noticed anything else?</div>
+                <div class="turkish">Başka bir şey fark ettiniz mi?</div>
+            </div>
+
+            <h3 class="section-heading">Patient History Questions</h3>
+            <div class="translation-pair">
+                <div class="english">Can you tell me your full name?</div>
+                <div class="turkish">Tam adınızı söyler misiniz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Why are you here today?</div>
+                <div class="turkish">Bugün buraya neden geldiniz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Have you had any serious illnesses?</div>
+                <div class="turkish">Ciddi bir hastalık geçirdiniz mi?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Are you taking any medications?</div>
+                <div class="turkish">Herhangi bir ilaç kullanıyor musunuz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Do you have any allergies?</div>
+                <div class="turkish">Herhangi bir alerjiniz var mı?</div>
+            </div>
+
+            <h3 class="section-heading">Active Listening Strategies</h3>
+            <div class="translation-pair">
+                <div class="english">I see / Really? / Is that right?</div>
+                <div class="turkish">Anlıyorum / Gerçekten mi? / Öyle mi?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Listening noises: hmmm, mm</div>
+                <div class="turkish">Dinleme sesleri: hmmm, mm</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Nodding your head</div>
+                <div class="turkish">Başını sallamak (onaylamak)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Eye contact</div>
+                <div class="turkish">Göz teması kurmak</div>
+            </div>
+
+            <h3 class="section-heading">Describing Symptoms</h3>
+            <div class="translation-pair">
+                <div class="english">Earache</div>
+                <div class="turkish">Kulak ağrısı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Sore throat</div>
+                <div class="turkish">Boğaz ağrısı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Runny nose</div>
+                <div class="turkish">Burun akıntısı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Skin rash</div>
+                <div class="turkish">Cilt döküntüsü</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Fever</div>
+                <div class="turkish">Ateş</div>
+            </div>
+
+            <h3 class="section-heading">Adverbs of Frequency</h3>
+            <div class="translation-pair">
+                <div class="english">never</div>
+                <div class="turkish">asla</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">hardly ever</div>
+                <div class="turkish">neredeyse hiç</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">sometimes</div>
+                <div class="turkish">bazen</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">usually</div>
+                <div class="turkish">genellikle</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">always</div>
+                <div class="turkish">her zaman</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">I'm often tired.</div>
+                <div class="turkish">Sık sık yorgun hissediyorum.</div>
+            </div>
+
+            <h3 class="section-heading">Taking a Blood Sample</h3>
+            <div class="translation-pair">
+                <div class="english">Antiseptic wipe</div>
+                <div class="turkish">Antiseptik mendil</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Cotton ball</div>
+                <div class="turkish">Pamuk topu</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Needle</div>
+                <div class="turkish">İğne</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Plaster</div>
+                <div class="turkish">Yara bandı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Specimen tube</div>
+                <div class="turkish">Numune tüpü</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Syringe</div>
+                <div class="turkish">Şırınga</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Tourniquet</div>
+                <div class="turkish">Turnike (damarı belirginleştirme bandı)</div>
+            </div>
+        </div>
+
+        <!-- Nutrition Content -->
+        <div id="nutrition" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>Nutrition (Beslenme)</h2>
+
+            <h3 class="section-heading">Food Pyramid</h3>
+            <div class="translation-pair">
+                <div class="english">Eat Most</div>
+                <div class="turkish">En çok tüket: Tahıllar</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Eat More</div>
+                <div class="turkish">Daha çok tüket: Sebzeler ve meyveler</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Eat Moderately</div>
+                <div class="turkish">Orta düzeyde tüket: Et, balık, yumurta, süt ve alternatifleri</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Eat Less</div>
+                <div class="turkish">Az tüket: Yağ, tuz, şeker</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Drink adequate fluid</div>
+                <div class="turkish">Yeterli sıvı tüket: Su, çay, berrak çorba vb.</div>
+            </div>
+
+            <h3 class="section-heading">Food Groups</h3>
+            <div class="translation-pair">
+                <div class="english">Carbohydrates (Energy)</div>
+                <div class="turkish">Karbonhidratlar (Enerji sağlar)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Fats (Help build the body)</div>
+                <div class="turkish">Yağlar (Vücudu inşa etmeye yardımcı olur)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Fibre (Helps digest)</div>
+                <div class="turkish">Lif (Sindirime yardımcı olur)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Minerals (Bones, blood, infection defense)</div>
+                <div class="turkish">Mineraller (Kemiklere, kana, enfeksiyonla savaşa yardımcı olur)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Proteins (Help grow and repair body)</div>
+                <div class="turkish">Proteinler (Büyümeye ve onarıma yardımcı olur)</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Vitamins (A,B,C,D,E) (Necessary for skin, bones, teeth)</div>
+                <div class="turkish">Vitaminler (A,B,C,D,E) (Cilt, kemik, dişler için gereklidir)</div>
+            </div>
+
+            <h3 class="section-heading">Grammar Examples</h3>
+            <div class="translation-pair">
+                <div class="english">A carrot</div>
+                <div class="turkish">Bir havuç</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">An apple</div>
+                <div class="turkish">Bir elma</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Some apples</div>
+                <div class="turkish">Birkaç elma</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Some apple juice</div>
+                <div class="turkish">Bir miktar elma suyu</div>
+            </div>
+
+            <h3 class="section-heading">Hospital Menu Orders</h3>
+            <div class="translation-pair">
+                <div class="english">a piece of quiche</div>
+                <div class="turkish">bir dilim kiş</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">some mashed potatoes</div>
+                <div class="turkish">biraz patates püresi</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">an orange</div>
+                <div class="turkish">bir portakal</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">some coffee</div>
+                <div class="turkish">biraz kahve</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">a turkey sandwich</div>
+                <div class="turkish">bir hindi sandviç</div>
+            </div>
+
+            <h3 class="section-heading">Like / Would like</h3>
+            <div class="translation-pair">
+                <div class="english">I like apple juice.</div>
+                <div class="turkish">Elma suyunu severim.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">I don't like orange juice.</div>
+                <div class="turkish">Portakal suyunu sevmem.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">I'd like some quiche, please.</div>
+                <div class="turkish">Biraz kiş istiyorum, lütfen.</div>
+            </div>
+
+            <h3 class="section-heading">How much / How many</h3>
+            <div class="translation-pair">
+                <div class="english">How much milk can I have?</div>
+                <div class="turkish">Ne kadar süt alabilirim?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">How many apples can you eat?</div>
+                <div class="turkish">Kaç elma yiyebilirsin?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Not much time.</div>
+                <div class="turkish">Çok vakit yok.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Not many oranges.</div>
+                <div class="turkish">Çok fazla portakal yok.</div>
+            </div>
+
+            <h3 class="section-heading">Assisting at Mealtimes</h3>
+            <div class="translation-pair">
+                <div class="english">Plastic apron</div>
+                <div class="turkish">Plastik önlük</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Straw</div>
+                <div class="turkish">Pipet</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Non-slip plate</div>
+                <div class="turkish">Kaymaz tabak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Non-slip mat</div>
+                <div class="turkish">Kaymaz altlık</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Two-handled cup</div>
+                <div class="turkish">İki kulplu bardak</div>
+            </div>
+        </div>
+
+        <!-- Patient Safety Content -->
+        <div id="safety" class="content-section">
+            <a href="#" class="back-button" onclick="showTopics()">← Geri</a>
+            <h2>Patient Safety (Hasta Güvenliği)</h2>
+
+            <h3 class="section-heading">Basic Concepts</h3>
+            <div class="translation-pair">
+                <div class="english">Patient safety is the absence of preventable harm</div>
+                <div class="turkish">Hasta güvenliği, önlenebilir zararın olmamasıdır</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Reduction of risk to acceptable minimum</div>
+                <div class="turkish">Riskin kabul edilebilir seviyeye indirilmesi</div>
+            </div>
+
+            <h3 class="section-heading">Common Sources of Patient Harm</h3>
+            <div class="translation-pair">
+                <div class="english">Medication errors</div>
+                <div class="turkish">İlaç hataları</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Surgical errors</div>
+                <div class="turkish">Cerrahi hatalar</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Infections</div>
+                <div class="turkish">Enfeksiyonlar</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Sepsis</div>
+                <div class="turkish">Sepsis</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Diagnostic errors</div>
+                <div class="turkish">Tanı hataları</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Patient falls</div>
+                <div class="turkish">Hasta düşmeleri</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Pressure ulcers</div>
+                <div class="turkish">Bası yaraları</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Unsafe transfusion practices</div>
+                <div class="turkish">Güvensiz kan transfüzyonu</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Patient misidentification</div>
+                <div class="turkish">Hastanın yanlış tanımlanması</div>
+            </div>
+
+            <h3 class="section-heading">Patient and Staff Safety</h3>
+            <div class="translation-pair">
+                <div class="english">Apron</div>
+                <div class="turkish">Önlük</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Disposable gloves</div>
+                <div class="turkish">Tek kullanımlık eldiven</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Eye protection</div>
+                <div class="turkish">Göz koruması</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Mask</div>
+                <div class="turkish">Maske</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Sharps box</div>
+                <div class="turkish">Kesici atık kutusu</div>
+            </div>
+
+            <h3 class="section-heading">Expressing Obligation</h3>
+            <div class="translation-pair">
+                <div class="english">Always wear gloves if you do a blood test.</div>
+                <div class="turkish">Kan testi yapıyorsan mutlaka eldiven giy.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Never recap the needle.</div>
+                <div class="turkish">İğne kapağını asla tekrar takma.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Always use a tray when passing sharps.</div>
+                <div class="turkish">Kesici aletleri taşırken mutlaka tepsi kullan.</div>
+            </div>
+
+            <h3 class="section-heading">Recovery Room Questions</h3>
+            <div class="translation-pair">
+                <div class="english">Are you in any pain?</div>
+                <div class="turkish">Ağrınız var mı?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Can you breathe well?</div>
+                <div class="turkish">İyi nefes alabiliyor musunuz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">What's your name?</div>
+                <div class="turkish">Adınız ne?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Do you know where you are?</div>
+                <div class="turkish">Nerede olduğunuzu biliyor musunuz?</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Do you feel nauseous?</div>
+                <div class="turkish">Mideniz bulanıyor mu?</div>
+            </div>
+
+            <h3 class="section-heading">Vital Signs</h3>
+            <div class="translation-pair">
+                <div class="english">Pulse</div>
+                <div class="turkish">Nabız</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Temperature</div>
+                <div class="turkish">Sıcaklık</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Blood pressure</div>
+                <div class="turkish">Tansiyon</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Respiration rate</div>
+                <div class="turkish">Solunum hızı</div>
+            </div>
+
+            <h3 class="section-heading">Post-operative Patient Feelings</h3>
+            <div class="translation-pair">
+                <div class="english">I feel groggy.</div>
+                <div class="turkish">Sersem hissediyorum.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">My throat is sore.</div>
+                <div class="turkish">Boğazım ağrıyor.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">I feel dizzy.</div>
+                <div class="turkish">Başım dönüyor.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">I feel like I can't move.</div>
+                <div class="turkish">Hareket edemeyecek gibiyim.</div>
+            </div>
+
+            <h3 class="section-heading">Post-operative Pain Management</h3>
+            <div class="translation-pair">
+                <div class="english">It hurts.</div>
+                <div class="turkish">Acıyor.</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Throbbing headache</div>
+                <div class="turkish">Zonklayan baş ağrısı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Stinging pain</div>
+                <div class="turkish">Batıcı ağrı</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Pain like a knife</div>
+                <div class="turkish">Bıçak gibi ağrı</div>
+            </div>
+
+            <h3 class="section-heading">Sequencers</h3>
+            <div class="translation-pair">
+                <div class="english">First</div>
+                <div class="turkish">İlk olarak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Second</div>
+                <div class="turkish">İkinci olarak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Third</div>
+                <div class="turkish">Üçüncü olarak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Then</div>
+                <div class="turkish">Sonra</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Finally</div>
+                <div class="turkish">Son olarak</div>
+            </div>
+
+            <h3 class="section-heading">Removing Sutures</h3>
+            <div class="translation-pair">
+                <div class="english">Explain the procedure</div>
+                <div class="turkish">İşlemi açıklamak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Prepare equipment on sterile tray</div>
+                <div class="turkish">Steril tepsiye malzemeleri hazırlamak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Remove bandage using sterile waste bag</div>
+                <div class="turkish">Bandajı steril atık torbasıyla çıkarmak</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Put on sterile gloves</div>
+                <div class="turkish">Steril eldiven giymek</div>
+            </div>
+            <div class="translation-pair">
+                <div class="english">Check for inflammation</div>
+                <div class="turkish">İltihap kontrolü yapmak</div>
+            </div>
+        </div>
+
+        <script>
+            function showTopics() {
+                document.getElementById('lessonsPage').style.display = 'none';
+                document.getElementById('topicList').style.display = 'block';
+                // Hide all content sections
+                const contentSections = document.getElementsByClassName('content-section');
+                for(let section of contentSections) {
+                    section.style.display = 'none';
+                }
+            }
+
+            function showContent(topicId) {
+                document.getElementById('topicList').style.display = 'none';
+                // Hide all content sections first
+                const contentSections = document.getElementsByClassName('content-section');
+                for(let section of contentSections) {
+                    section.style.display = 'none';
+                }
+                // Show the selected content section
+                document.getElementById(topicId).style.display = 'block';
+            }
+        </script>
+    </div>
+</body>
+</html>
